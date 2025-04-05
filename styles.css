@@ -1,0 +1,280 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+/* General Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: "Poppins", sans-serif;
+    background: #000;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+/* Parallax Container */
+.parallax-container {
+    height: 155vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 1px;
+}
+
+/* Panels (Each Mission Phase) */
+.panel {
+    height: 130vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    position: relative;
+    background-size: cover;
+    background-attachment: fixed; /* This enables the parallax effect */
+    background-position: center;
+}
+
+
+/* Backgrounds for Each Section */
+.launch { background-image: url('assets/stars_gif.gif'); }
+.earth-departure { background-image: url('assets\15chandrayaan1.webp'); }
+.orbit-insertion { background-image: url('assets/orbit.gif'); }
+.landing { background-image: url('assets/Rocket.gif'); }
+.rover-exploration { background-image: url('assets/rover_gif.gif'); }
+.mission-success { background-image: url('assets/mission_success_gif.gif'); }
+
+/* Overlay Effect for Text */
+.panel h1, .panel h2, .panel p {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.panel h1, 
+.panel h2 {
+    display: block;  /* Ensures the heading is a block element */
+    margin-bottom: 20px; /* Space below the heading */
+    z-index: 10;
+    transform: translate(-10%, 10%); 
+}
+
+.panel p {
+    display: block;  /* Ensures paragraphs are block elements */
+    margin-top: 30px;  /* Space above paragraphs */ 
+    line-height: 2;  /* Improves readability */
+    padding: 70px;
+    z-index: 10;
+    transform: translate(-30%, -30%); 
+}
+
+.parallax img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    pointer-events: none;
+}
+
+.parallax img #earth-right{
+    transform: translateX(-282px);
+}
+
+
+.launch img{
+    position: relative;
+    align-content: left;
+    height: 10vh;
+    width: 10vh;
+
+}
+.launch img{
+    position: relative;
+    align-content: right;
+    height: 55vh;
+    width: 50vh;
+}
+
+.orbit-container {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    animation: rotate-orbit 10s infinite linear; /* Earth orbit */
+}
+
+.earth {
+    position:fixed;
+    top: 30%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    background-image: url('earth.png'); /* Replace with your Earth image path */
+    background-size: cover;
+    border-radius: 50%;
+    animation: rotate-earth 20s infinite linear; /* Earth rotation */
+    
+}
+
+.moon-orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    animation: moon-orbit 5s infinite linear; /* Moon orbit speed */
+    transform-origin: 50px; /* Orbit radius for the Moon */
+}
+
+.moon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    background-image: url('assets/moon.png'); /* Replace with your Moon image path */
+    background-size: cover;
+    border-radius: 50%;
+    animation: rotate-moon 10s infinite linear; /* Moon rotation speed */
+}
+
+@keyframes rotate-orbit {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate-earth {
+    0% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(50deg);
+    }
+}
+
+@keyframes moon-orbit {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate-moon {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg); /* Moon rotating on its own axis */
+    }
+}
+
+
+.launch_rocket {
+    position: absolute;
+    bottom: 10%;
+    width: 90px;
+    top: 7px;
+    left: 60%;
+    background-image: url("assets\rocket_launch.png"); /* Replace with a rocket image */
+    background-size: cover;
+    background-position: right;
+    animation: launch 5s linear infinite;
+   
+    
+}
+
+
+/* Rocket launch animation */
+@keyframes launch {
+    0% {
+        bottom: 0;
+    }
+    100% {
+        bottom: 100%;
+    }
+}
+
+
+        
+       
+.satellite {
+            width: 30px;
+            height: 30px;
+            background-color: silver;
+            border-radius: 50%;
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbit 5s linear infinite;
+        }
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+        }
+
+.space-button{
+    position: absolute;
+    background-color: #000;
+}
+
+        .section {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            border: 2px solid white;
+            border-radius: 50%;
+        }
+        .moon {
+            width: 80px;
+            height: 80px;
+            background-color: gray;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .satellite {
+            width: 30px;
+            height: 30px;
+            background-color: silver;
+            border-radius: 50%;
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbit 5s linear infinite;
+        }
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+        }
+        .image-button {
+            background-color: black;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        .image-button img {
+            width: 100px;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+            animation: moveRotate 3s infinite alternate ease-in-out;
+        }
+        @keyframes moveRotate {
+            0% { transform: translateX(0) rotate(0deg); }
+            100% { transform: translateX(50px) rotate(360deg); }
+        }
+        .image-button img:hover {
+            transform: scale(1.1);
+        }
+  

@@ -1,0 +1,110 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: "Poppins", sans-serif;
+    background: #000;
+    color: white;
+    scroll-behavior: smooth;
+}
+
+/* Parallax Container */
+.parallax-container {
+    height: 155vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 1px;
+}
+
+/* Panels (Each Mission Phase) */
+.panel {
+    height: 130vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2rem;
+    position: relative;
+    background-size: cover;
+    background-attachment: fixed; /* This enables the parallax effect */
+    background-position: center;
+}
+
+.panel h1, .panel h2, .panel p {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.panel h1, 
+.panel h2 {
+    display: block;  /* Ensures the heading is a block element */
+    margin-bottom: 20px; /* Space below the heading */
+    z-index: 10;
+    transform: translate(-10%, 10%); 
+}
+.panel p {
+    display: block;  /* Ensures paragraphs are block elements */
+    margin-top: 30px;  /* Space above paragraphs */ 
+    line-height: 2;  /* Improves readability */
+    padding: 70px;
+    z-index: 10;
+    transform: translate(-10%, -10%); 
+}
+
+.moon {
+    position:fixed;
+    top: 30%;
+    left: 80%;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    background-image: url('earth.png'); /* Replace with your Earth image path */
+    background-size: cover;
+    border-radius: 50%;
+    animation: rotate-moon 20s infinite linear; /* Earth rotation */
+    
+}
+
+@keyframes rotate-moon {
+    0% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(50deg);
+    }
+}
+.satellite {
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: orbit 5s linear infinite;
+}
+@keyframes orbit {
+    0% { transform: rotate(0deg) translateX(120px) rotate(0deg); }
+    100% { transform: rotate(360deg) translateX(120px) rotate(-360deg); }
+}
+
+.image-button {
+    background-color: black;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.image-button img {
+    width: 100px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+    animation: moveRotate 3s infinite alternate ease-in-out;
+}
+@keyframes moveRotate {
+    0% { transform: translateX(0) rotate(0deg); }
+    100% { transform: translateX(50px) rotate(360deg); }
+}
+.image-button img:hover {
+    transform: scale(1.1);
+}
+.next{
+    position: absolute;
+    align-content: right;
+}
